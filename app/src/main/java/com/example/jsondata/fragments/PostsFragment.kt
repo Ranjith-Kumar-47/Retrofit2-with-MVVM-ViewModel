@@ -17,12 +17,9 @@ import com.example.jsondata.viewModel.PostsFragmentViewModel
 class PostsFragment : Fragment() {
     lateinit var recyclerViewPosts: RecyclerView
     lateinit var arrayList: ArrayList<Posts>
-    override fun onCreateView(
-
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view: View? = inflater.inflate(R.layout.fragment_posts, container, false)
+        val view:View? = inflater.inflate(R.layout.fragment_posts, container, false)
         arrayList = ArrayList()
         recyclerViewPosts = view!!.findViewById(R.id.recyclerViewPosts)
         recyclerViewPosts.layoutManager = LinearLayoutManager(activity)

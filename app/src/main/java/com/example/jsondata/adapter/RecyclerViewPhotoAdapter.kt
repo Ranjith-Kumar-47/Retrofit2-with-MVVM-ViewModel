@@ -1,5 +1,9 @@
 package com.example.jsondata.adapter
 
+import android.app.Dialog
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +18,8 @@ import com.example.jsondata.model.photos.Photos
 
 class RecyclerViewPhotoAdapter(
     private val arrayList: Photos,
-    private val fragmentActivity: PhotosFragment
+    private val fragmentActivity: PhotosFragment,
+    private val context: Context
 ) :
     RecyclerView.Adapter<RecyclerViewPhotoAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -29,6 +34,15 @@ class RecyclerViewPhotoAdapter(
         holder.album1.text = arrayList[position].albumId.toString()
         holder.id1.text = arrayList[position].id.toString()
         Glide.with(fragmentActivity).load(arrayList[position].thumbnailUrl).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.imageViewImage)
+        holder.imageViewImage.setOnClickListener {
+            val dialog = Dialog(context)
+            dialog.setContentView(R.layout.large_profile_image)
+            val imageView:ImageView = dialog.findViewById(R.id.ivImage)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            Glide.with(context).load(arrayList[position].url).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageView)
+            dialog.setCancelable(true)
+            dialog.show()
+        }
 
     }
 

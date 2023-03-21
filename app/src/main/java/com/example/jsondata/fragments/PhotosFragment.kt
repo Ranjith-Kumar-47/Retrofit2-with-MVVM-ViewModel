@@ -39,7 +39,7 @@ class PhotosFragment : Fragment() {
     }
 
     private fun addPhotoDetailsToRecyclerView(photosItem: Photos) {
-        val recyclerViewPhotoAdapter = RecyclerViewPhotoAdapter(photosItem,this)
+        val recyclerViewPhotoAdapter = RecyclerViewPhotoAdapter(photosItem,this,requireActivity())
         recyclerViewPhotos.adapter = recyclerViewPhotoAdapter
 
 

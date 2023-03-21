@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.jsondata.adapter.FragmentAdapter
-import com.example.jsondata.fragments.CommentsFragment
+import com.example.jsondata.fragments.UsersFragment
 import com.example.jsondata.fragments.PhotosFragment
 import com.example.jsondata.fragments.PostsFragment
 import com.google.android.material.tabs.TabLayout
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val arrayList: ArrayList<Fragment> = ArrayList()
         arrayList.add(PhotosFragment())
         arrayList.add(PostsFragment())
-        arrayList.add(CommentsFragment())
+        arrayList.add(UsersFragment())
 
         val fragmentAdapter = FragmentAdapter(arrayList, supportFragmentManager, lifecycle)
         tabLayout.addTab(tabLayout.newTab().setText("Photos"))
